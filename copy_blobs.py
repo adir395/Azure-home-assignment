@@ -3,10 +3,8 @@ from datetime import datetime, timedelta
 from dotenv import load_dotenv
 import os
 
-# טוען את הקובץ .env
 load_dotenv()
 
-# קריאה של הערכים מקובץ .env
 STORAGE_ACCOUNT_A_CONNECTION_STRING = os.getenv("STORAGE_ACCOUNT_A_CONNECTION_STRING")
 STORAGE_ACCOUNT_B_CONNECTION_STRING = os.getenv("STORAGE_ACCOUNT_B_CONNECTION_STRING")
 CONTAINER_NAME_A = os.getenv("CONTAINER_NAME_A")
@@ -15,7 +13,6 @@ ACCOUNT_KEY_A = os.getenv("ACCOUNT_KEY_A")
 
 
 def test_connection(blob_service_client, account_name):
-    """בודק את החיבור לחשבון Azure Blob Storage"""
     try:
         blob_service_client.get_account_information()
         print(f"Connection to account '{account_name}' successful!")
@@ -25,7 +22,6 @@ def test_connection(blob_service_client, account_name):
 
 
 def create_container_if_not_exists(container_client):
-    """יוצר קונטיינר אם הוא לא קיים"""
     try:
         container_client.create_container()
         print(f"Container '{container_client.container_name}' created successfully.")
@@ -37,7 +33,6 @@ def create_container_if_not_exists(container_client):
 
 
 def generate_sas_token(account_name, container_name, blob_name, account_key):
-    """יוצר SAS Token עבור Blob"""
     sas_token = generate_blob_sas(
         account_name=account_name,
         container_name=container_name,
@@ -50,7 +45,6 @@ def generate_sas_token(account_name, container_name, blob_name, account_key):
 
 
 def create_and_upload_blobs():
-    """יוצר קונטיינר ומעלה 100 Blobs לחשבון A"""
     blob_service_client_a = BlobServiceClient.from_connection_string(STORAGE_ACCOUNT_A_CONNECTION_STRING)
     container_client_a = blob_service_client_a.get_container_client(CONTAINER_NAME_A)
 
@@ -69,7 +63,6 @@ def create_and_upload_blobs():
 
 
 def copy_blobs_to_storage_b():
-    """מעתיק Blobs מחשבון A לחשבון B"""
     blob_service_client_a = BlobServiceClient.from_connection_string(STORAGE_ACCOUNT_A_CONNECTION_STRING)
     blob_service_client_b = BlobServiceClient.from_connection_string(STORAGE_ACCOUNT_B_CONNECTION_STRING)
 
