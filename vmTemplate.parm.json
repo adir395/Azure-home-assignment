@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "Eastus"
+        },
+        "vmSize": {
+            "value": "Standard_B1s"
+        },
+        "adminUsername": {
+            "value": "adir"
+        },
+        "adminPublicKey": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQQ1QI11amO8W5zdO2FcEeDyVv5xbL7xfbMcgMVNYuvXlhH9bsc7Yzikak0v7f0HEiMHvXKpFwNSF+yomiDbB05nfn5DS8Nf9YboujxaAqpadFQ3ypZWCfAv+glQbDVCJP76rJ+ZOm3IwL08xVHZBQUmuRuhs2QJbC9fpP2lw/ROhpiG8zom79NGl3gZPm/REPV8aww1b0OK6dFGhd/KeQ3ZWcPCaFHPTb+t2la7hkK27wfk/fsI6OMPCjumekihSNIZ5YuDGaxyzixFOF4pd8jjX4vR6TBWmzUCWFVgARiiwHxa438woNcvJJL22jtJAGdkuDdSVM4KDrpdUuO1MF"
+        }
+    }
+}
